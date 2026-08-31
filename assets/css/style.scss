@@ -1500,3 +1500,32 @@ html[data-theme="light"] .zv-header {
   }
 
 }
+
+/* =========================================================
+   RELATED ARTICLES
+   ========================================================= */
+
+.zv-related {
+  margin-top: 80px;
+  padding-top: 35px;
+  border-top: 1px solid var(--zv-border);
+}
+
+.zv-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .zv-related-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
