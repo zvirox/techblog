@@ -2,9 +2,13 @@
 layout: default
 ---
 
-<main class="zv-container">
+<div class="zv-container">
 
   <article class="zv-post">
+
+    <!-- =====================================================
+         ARTICLE HEADER
+         ===================================================== -->
 
     <header class="zv-post-header">
 
@@ -41,12 +45,47 @@ layout: default
     </header>
 
 
-    <div class="zv-post-content">
+    <!-- =====================================================
+         ARTICLE LAYOUT
+         ===================================================== -->
 
-      {{ content }}
+    <div class="zv-post-layout">
+
+      <!-- Table of Contents -->
+      <aside
+        class="zv-toc"
+        aria-label="Table of contents"
+      >
+
+        <div class="zv-toc-inner">
+
+          <div class="zv-toc-title">
+            ON THIS PAGE
+          </div>
+
+          <nav id="zv-toc-list"></nav>
+
+        </div>
+
+      </aside>
+
+
+      <!-- Article -->
+      <div
+        class="zv-post-content"
+        id="zv-article-content"
+      >
+
+        {{ content }}
+
+      </div>
 
     </div>
 
+
+    <!-- =====================================================
+         TAGS
+         ===================================================== -->
 
     {% if page.tags and page.tags.size > 0 %}
 
@@ -70,4 +109,93 @@ layout: default
 
   </article>
 
-</main>
+</div>
+
+
+<!-- =========================================================
+     AUTOMATIC TABLE OF CONTENTS
+     ========================================================= -->
+
+<script>
+(function () {
+
+  const article = document.getElementById("zv-article-content");
+  const toc = document.getElementById("zv-toc-list");
+
+  if (!article || !toc) {
+    return;
+  }
+
+  const headings = article.querySelectorAll("h2, h3");
+
+  if (headings.length === 0) {
+    const tocContainer = document.querySelector(".zv-toc");
+
+    if (tocContainer) {
+      tocContainer.style.display = "none";
+    }
+
+    return;
+  }
+
+
+  headings.forEach(function (heading, index) {
+
+    /*
+     * Create a predictable ID when the heading
+     * doesn't already have one.
+     */
+
+    if (!heading.id) {
+
+      const slug = heading.textContent
+        .trim()
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-");
+
+      heading.id = slug || "section-" + (index + 1);
+    }
+
+
+    const link = document.createElement("a");
+
+    link.href = "#" + heading.id;
+    link.textContent = heading.textContent;
+
+    if (heading.tagName.toLowerCase() === "h3") {
+      link.classList.add("zv-toc-subitem");
+    } else {
+      link.classList.add("zv-toc-item");
+    }
+
+
+    link.addEventListener("click", function () {
+
+      const target = document.getElementById(heading.id);
+
+      if (!target) {
+        return;
+      }
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      history.replaceState(
+        null,
+        "",
+        "#" + heading.id
+      );
+
+    });
+
+
+    toc.appendChild(link);
+
+  });
+
+})();
+</script>

@@ -1166,7 +1166,7 @@ html[data-theme="light"] .zv-header {
    ========================================================= */
 
 .zv-post {
-  max-width: 860px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 70px 0 100px;
 }
@@ -1380,6 +1380,123 @@ html[data-theme="light"] .zv-header {
     margin-left: -10px;
     margin-right: -10px;
     border-radius: 7px;
+  }
+
+}
+
+/* =========================================================
+   ARTICLE LAYOUT + TABLE OF CONTENTS
+   ========================================================= */
+
+.zv-post-layout {
+  display: grid;
+
+  grid-template-columns:
+    220px minmax(0, 860px);
+
+  gap: 55px;
+
+  align-items: start;
+}
+
+
+/* ---------------------------------------------------------
+   TABLE OF CONTENTS
+   --------------------------------------------------------- */
+
+.zv-toc {
+  position: sticky;
+  top: 105px;
+
+  align-self: start;
+}
+
+.zv-toc-inner {
+  padding: 18px;
+
+  background: var(--zv-surface);
+
+  border: 1px solid var(--zv-border);
+  border-radius: var(--zv-radius);
+
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.zv-toc-title {
+  margin-bottom: 13px;
+
+  color: var(--zv-red);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.zv-toc-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.zv-toc-item,
+.zv-toc-subitem {
+  display: block;
+
+  padding: 6px 0;
+
+  color: var(--zv-text-muted);
+
+  font-size: 12px;
+  line-height: 1.45;
+
+  text-decoration: none;
+
+  transition:
+    color var(--zv-transition),
+    padding-left var(--zv-transition);
+}
+
+.zv-toc-item:hover,
+.zv-toc-subitem:hover {
+  color: var(--zv-text);
+  padding-left: 3px;
+}
+
+.zv-toc-subitem {
+  padding-left: 12px;
+
+  font-size: 11px;
+}
+
+
+/* ---------------------------------------------------------
+   ARTICLE CONTENT
+   --------------------------------------------------------- */
+
+.zv-post-content h2,
+.zv-post-content h3 {
+  scroll-margin-top: 100px;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .zv-post-layout {
+    display: block;
+  }
+
+  .zv-toc {
+    position: static;
+
+    margin-bottom: 35px;
+  }
+
+  .zv-toc-inner {
+    max-height: none;
   }
 
 }
