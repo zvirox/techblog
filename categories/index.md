@@ -57,12 +57,12 @@ description: Explore technology, IT, networking, Linux and cybersecurity topics 
 
             </p>
 
-            <a
-              href="{{ '/categories/' | append: category_name | slugify | append: '/' | relative_url }}"
-              class="zv-section-link"
-            >
-              Explore →
-            </a>
+           <a
+  href="{{ '/categories/networking/' | relative_url }}"
+  class="zv-section-link"
+>
+  Explore →
+</a>
 
           </div>
 
