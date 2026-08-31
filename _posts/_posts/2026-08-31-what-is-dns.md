@@ -2,7 +2,7 @@
 layout: post
 title: "What Is DNS? A Simple Explanation"
 description: "Understand what DNS does, how domain names become IP addresses, and what happens when you open a website."
-date: 2026-09-01
+date: 2026-08-31
 author: "Zvirox"
 categories:
   - Networking
