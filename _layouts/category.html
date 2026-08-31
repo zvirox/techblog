@@ -1,0 +1,84 @@
+---
+layout: default
+---
+
+<div class="zv-container">
+
+  <section class="zv-section">
+
+    <div class="zv-section-header">
+
+      <div>
+
+        <div class="zv-card-category">
+          CATEGORY
+        </div>
+
+        <h1 class="zv-section-title">
+          {{ page.category }}
+        </h1>
+
+      </div>
+
+    </div>
+
+
+    <div class="zv-article-grid">
+
+      {% for post in site.categories[page.category] %}
+
+        <article class="zv-card">
+
+          <div class="zv-card-body">
+
+            <div class="zv-card-category">
+              {{ page.category }}
+            </div>
+
+            <h2 class="zv-card-title">
+
+              <a href="{{ post.url | relative_url }}">
+                {{ post.title }}
+              </a>
+
+            </h2>
+
+            {% if post.description %}
+
+              <p class="zv-card-excerpt">
+                {{ post.description }}
+              </p>
+
+            {% else %}
+
+              <p class="zv-card-excerpt">
+                {{ post.excerpt | strip_html | truncate: 160 }}
+              </p>
+
+            {% endif %}
+
+            <div class="zv-card-meta">
+
+              <span>
+                {{ post.date | date: "%b %d, %Y" }}
+              </span>
+
+              <span>•</span>
+
+              <span>
+                Read article
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      {% endfor %}
+
+    </div>
+
+  </section>
+
+</div>
