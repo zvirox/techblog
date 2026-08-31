@@ -1,9 +1,9 @@
-title: "ZVirox"
+title: "Zvirox"
 description: "Technology, IT, Networking and Cybersecurity tutorials and guides."
 url: "https://zvirox.in"
 
 
-author: "ZVirox"
+author: "Zvirox"
 
 plugins:
   - jekyll-feed
