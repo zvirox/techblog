@@ -4,7 +4,7 @@ url: "https://zvirox.in"
 
 theme: minima
 
-author:"ZVirox"
+author: "ZVirox"
 
 plugins:
   - jekyll-feed
