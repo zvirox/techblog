@@ -1,0 +1,16 @@
+title: "ZVirox Tech Blog"
+description: "Technology, IT, Networking and Cybersecurity tutorials and guides."
+url: "https://zvirox.in"
+
+theme: minima
+
+author:
+  name: "ZVirox"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+markdown: kramdown
+
+permalink: /:categories/:title/
