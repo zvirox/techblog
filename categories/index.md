@@ -24,49 +24,100 @@ description: Explore technology, IT, networking, Linux and cybersecurity topics 
 
     <div class="zv-article-grid">
 
-      {% assign categories = site.categories | sort %}
+  {% assign categories = site.categories | sort %}
 
-      {% for category in categories %}
+{% for category in categories %}
 
-        {% assign category_name = category[0] %}
-        {% assign category_posts = category[1] %}
+  {% assign category_name = category[0] %}
+  {% assign category_posts = category[1] %}
 
-        <article class="zv-card">
+  {% assign category_slug = category_name | slugify %}
 
-          <div class="zv-card-body">
+  <article class="zv-card">
 
-            <div class="zv-card-category">
-              {{ category_name }}
-            </div>
+    <div class="zv-card-body">
 
-            <h2 class="zv-card-title">
-              {{ category_name }}
-            </h2>
+      <div class="zv-card-category">
+        {{ category_name }}
+      </div>
 
-            <p class="zv-card-excerpt">
+      <h2 class="zv-card-title">
+        {{ category_name }}
+      </h2>
 
-              {{ category_posts.size }}
+      <p class="zv-card-excerpt">
 
-              {% if category_posts.size == 1 %}
-                article
-              {% else %}
-                articles
-              {% endif %}
+        {{ category_posts.size }}
 
-              published in this category.
+        {% if category_posts.size == 1 %}
+          article
+        {% else %}
+          articles
+        {% endif %}
 
-            </p>
+        published in this category.
 
-           <a
-  href="{{ '/categories/networking/' | relative_url }}"
-  class="zv-section-link"
->
-  Explore →
-</a>
+      </p>
 
-          </div>
+      {% if category_slug == "networking" %}
 
-        </article>
+        <a
+          href="{{ '/categories/networking/' | relative_url }}"
+          class="zv-section-link"
+        >
+          Explore →
+        </a>
+
+      {% elsif category_slug == "cybersecurity" %}
+
+        <a
+          href="{{ '/categories/cybersecurity/' | relative_url }}"
+          class="zv-section-link"
+        >
+          Explore →
+        </a>
+
+      {% elsif category_slug == "linux" %}
+
+        <a
+          href="{{ '/categories/linux/' | relative_url }}"
+          class="zv-section-link"
+        >
+          Explore →
+        </a>
+
+      {% elsif category_slug == "it" %}
+
+        <a
+          href="{{ '/categories/it/' | relative_url }}"
+          class="zv-section-link"
+        >
+          Explore →
+        </a>
+
+      {% elsif category_slug == "cloud" %}
+
+        <a
+          href="{{ '/categories/cloud/' | relative_url }}"
+          class="zv-section-link"
+        >
+          Explore →
+        </a>
+
+      {% elsif category_slug == "technology" %}
+
+        <a
+          href="{{ '/categories/technology/' | relative_url }}"
+          class="zv-section-link"
+        >
+          Explore →
+        </a>
+
+      {% endif %}
+
+    </div>
+
+  </article>
 
       {% endfor %}
 
