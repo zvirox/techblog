@@ -1159,3 +1159,227 @@ html[data-theme="light"] .zv-header {
   }
 
 }
+
+
+/* =========================================================
+   ARTICLE / POST
+   ========================================================= */
+
+.zv-post {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 70px 0 100px;
+}
+
+.zv-post-header {
+  margin-bottom: 60px;
+}
+
+.zv-post-title {
+  margin: 18px 0 20px;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.zv-post-description {
+  max-width: 720px;
+  margin: 0 0 25px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--zv-text-muted);
+}
+
+.zv-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--zv-text-muted);
+  font-size: 0.9rem;
+}
+
+
+/* ---------------------------------------------------------
+   ARTICLE CONTENT
+   --------------------------------------------------------- */
+
+.zv-post-content {
+  font-size: 1.08rem;
+  line-height: 1.85;
+}
+
+.zv-post-content h2 {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.zv-post-content h3 {
+  margin-top: 45px;
+  margin-bottom: 15px;
+  font-size: 1.45rem;
+  line-height: 1.3;
+}
+
+.zv-post-content p {
+  margin: 0 0 24px;
+}
+
+.zv-post-content ul,
+.zv-post-content ol {
+  margin: 0 0 28px;
+  padding-left: 28px;
+}
+
+.zv-post-content li {
+  margin-bottom: 8px;
+}
+
+.zv-post-content a {
+  color: var(--zv-accent);
+  text-decoration: none;
+}
+
+.zv-post-content a:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------
+   CODE
+   --------------------------------------------------------- */
+
+.zv-post-content code {
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  background: var(--zv-surface);
+  border: 1px solid var(--zv-border);
+}
+
+.zv-post-content pre {
+  margin: 30px 0;
+  padding: 22px;
+  overflow-x: auto;
+  border-radius: 10px;
+  background: var(--zv-surface);
+  border: 1px solid var(--zv-border);
+}
+
+.zv-post-content pre code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+
+/* ---------------------------------------------------------
+   BLOCKQUOTES
+   --------------------------------------------------------- */
+
+.zv-post-content blockquote {
+  margin: 30px 0;
+  padding: 20px 25px;
+  border-left: 3px solid var(--zv-accent);
+  background: var(--zv-surface);
+  color: var(--zv-text-muted);
+}
+
+
+/* ---------------------------------------------------------
+   IMAGES
+   --------------------------------------------------------- */
+
+.zv-post-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 35px auto;
+  border-radius: 10px;
+}
+
+
+/* ---------------------------------------------------------
+   TABLES
+   --------------------------------------------------------- */
+
+.zv-post-content table {
+  width: 100%;
+  margin: 30px 0;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.zv-post-content th,
+.zv-post-content td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--zv-border);
+}
+
+.zv-post-content th {
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   TAGS
+   --------------------------------------------------------- */
+
+.zv-post-footer {
+  margin-top: 70px;
+  padding-top: 25px;
+  border-top: 1px solid var(--zv-border);
+}
+
+.zv-post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zv-tag {
+  padding: 6px 10px;
+  border: 1px solid var(--zv-border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--zv-text-muted);
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+  .zv-post {
+    padding: 45px 0 70px;
+  }
+
+  .zv-post-header {
+    margin-bottom: 40px;
+  }
+
+  .zv-post-content {
+    font-size: 1rem;
+  }
+
+  .zv-post-content h2 {
+    margin-top: 45px;
+    font-size: 1.7rem;
+  }
+
+  .zv-post-content h3 {
+    margin-top: 35px;
+    font-size: 1.3rem;
+  }
+
+  .zv-post-content pre {
+    margin-left: -10px;
+    margin-right: -10px;
+    border-radius: 7px;
+  }
+
+}

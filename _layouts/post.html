@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<main class="zv-container">
+
+  <article class="zv-post">
+
+    <header class="zv-post-header">
+
+      {% if page.categories and page.categories.size > 0 %}
+        <div class="zv-card-category">
+          {{ page.categories | first }}
+        </div>
+      {% endif %}
+
+      <h1 class="zv-post-title">
+        {{ page.title }}
+      </h1>
+
+      {% if page.description %}
+        <p class="zv-post-description">
+          {{ page.description }}
+        </p>
+      {% endif %}
+
+      <div class="zv-post-meta">
+
+        <span>
+          {{ page.date | date: "%B %d, %Y" }}
+        </span>
+
+        <span>•</span>
+
+        <span>
+          By {{ page.author | default: site.author }}
+        </span>
+
+      </div>
+
+    </header>
+
+
+    <div class="zv-post-content">
+
+      {{ content }}
+
+    </div>
+
+
+    {% if page.tags and page.tags.size > 0 %}
+
+      <footer class="zv-post-footer">
+
+        <div class="zv-post-tags">
+
+          {% for tag in page.tags %}
+
+            <span class="zv-tag">
+              {{ tag }}
+            </span>
+
+          {% endfor %}
+
+        </div>
+
+      </footer>
+
+    {% endif %}
+
+  </article>
+
+</main>
