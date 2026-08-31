@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="{{ page.description | default: site.description }}"
+  >
+
+  <meta name="author" content="{{ site.author | default: 'ZVirox' }}">
+
+  <title>
+    {% if page.title %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  <!-- Prevent theme flash on page load -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("zvirox-theme");
+
+      if (savedTheme === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+  <!-- ZVirox stylesheet -->
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/style.css' | relative_url }}"
+  >
+</head>
+
+<body>
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="zv-header">
+
+    <div class="zv-container zv-header-inner">
+
+      <!-- Brand -->
+      <a
+        class="zv-brand"
+        href="{{ '/' | relative_url }}"
+        aria-label="ZVirox home"
+      >
+        <img
+          src="{{ '/assets/images/zvirox-logo.png' | relative_url }}"
+          alt="ZVirox"
+        >
+      </a>
+
+
+      <!-- Navigation -->
+      <nav
+        class="zv-nav"
+        aria-label="Main navigation"
+      >
+
+        <a href="{{ '/' | relative_url }}">
+          Home
+        </a>
+
+        <a href="{{ '/articles/' | relative_url }}">
+          Articles
+        </a>
+
+        <a href="{{ '/categories/' | relative_url }}">
+          Categories
+        </a>
+
+        <a href="{{ '/about/' | relative_url }}">
+          About
+        </a>
+
+      </nav>
+
+
+      <!-- Header controls -->
+      <div class="zv-header-actions">
+
+        <!-- Theme toggle -->
+        <button
+          id="zv-theme-toggle"
+          class="zv-icon-button"
+          type="button"
+          aria-label="Switch to light mode"
+          title="Switch theme"
+        >
+          <span id="zv-theme-icon" aria-hidden="true">☀️</span>
+        </button>
+
+        <!-- Mobile menu button -->
+        <button
+          id="zv-menu-button"
+          class="zv-icon-button zv-menu-button"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          title="Open menu"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
+
+  <main id="main-content">
+
+    {{ content }}
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="zv-footer">
+
+    <div class="zv-container">
+
+      <div class="zv-footer-grid">
+
+        <!-- Brand -->
+        <div>
+
+          <div class="zv-footer-brand">
+            ZVirox
+          </div>
+
+          <p>
+            Practical technology, IT, networking and
+            cybersecurity tutorials and guides.
+          </p>
+
+        </div>
+
+
+        <!-- Explore -->
+        <div>
+
+          <h3>Explore</h3>
+
+          <div class="zv-footer-links">
+
+            <a href="{{ '/' | relative_url }}">
+              Home
+            </a>
+
+            <a href="{{ '/articles/' | relative_url }}">
+              Articles
+            </a>
+
+            <a href="{{ '/categories/' | relative_url }}">
+              Categories
+            </a>
+
+            <a href="{{ '/about/' | relative_url }}">
+              About
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Topics -->
+        <div>
+
+          <h3>Topics</h3>
+
+          <div class="zv-footer-links">
+
+            <a href="{{ '/categories/cybersecurity/' | relative_url }}">
+              Cybersecurity
+            </a>
+
+            <a href="{{ '/categories/networking/' | relative_url }}">
+              Networking
+            </a>
+
+            <a href="{{ '/categories/linux/' | relative_url }}">
+              Linux
+            </a>
+
+            <a href="{{ '/categories/it/' | relative_url }}">
+              IT
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="zv-footer-bottom">
+
+        © {{ 'now' | date: "%Y" }} ZVirox.
+        All rights reserved.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       ZVIROX THEME SCRIPT
+       ===================================================== -->
+
+  <script>
+    (function () {
+
+      const toggle = document.getElementById("zv-theme-toggle");
+      const icon = document.getElementById("zv-theme-icon");
+
+      if (!toggle || !icon) {
+        return;
+      }
+
+      function updateThemeButton() {
+
+        const isLight =
+          document.documentElement.getAttribute("data-theme") === "light";
+
+        if (isLight) {
+
+          icon.textContent = "🌙";
+
+          toggle.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+          );
+
+          toggle.setAttribute(
+            "title",
+            "Switch to dark mode"
+          );
+
+        } else {
+
+          icon.textContent = "☀️";
+
+          toggle.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+          );
+
+          toggle.setAttribute(
+            "title",
+            "Switch to light mode"
+          );
+        }
+      }
+
+
+      toggle.addEventListener("click", function () {
+
+        const isLight =
+          document.documentElement.getAttribute("data-theme") === "light";
+
+        if (isLight) {
+
+          document.documentElement.removeAttribute("data-theme");
+
+          localStorage.setItem(
+            "zvirox-theme",
+            "dark"
+          );
+
+        } else {
+
+          document.documentElement.setAttribute(
+            "data-theme",
+            "light"
+          );
+
+          localStorage.setItem(
+            "zvirox-theme",
+            "light"
+          );
+        }
+
+        updateThemeButton();
+      });
+
+
+      updateThemeButton();
+
+    })();
+  </script>
+
+</body>
+</html>
