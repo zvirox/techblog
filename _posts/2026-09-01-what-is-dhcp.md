@@ -12,10 +12,10 @@ tags:
   - IP Address
   - Network Security
   - DORA
-image: "/assets/images/dhcp-dynamic-host-configuration-protocol.jpg"
+image: "/assets/images/dhcp-dynamic-host-configuration-protocol.png"
 ---
 
-![DHCP — Dynamic Host Configuration Protocol](/assets/images/dhcp-dynamic-host-configuration-protocol.jpg)
+![DHCP — Dynamic Host Configuration Protocol](/assets/images/dhcp-dynamic-host-configuration-protocol.png)
 
 # What Is DHCP and How Does It Work?
 
